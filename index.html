@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Backdrop — wallpapers, free to keep</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <header class="site-header">
+      <div class="wordmark">Back<span>drop</span></div>
+      <div class="header-actions" id="headerActions">
+        <button class="btn" id="loginBtn">Log in</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h1>A collection of wallpapers, free to keep.</h1>
+      <p>Browse the full set below. Create a free account to download any wallpaper at full resolution.</p>
+    </section>
+
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-chip active" data-category="all">All</button>
+    </div>
+
+    <div class="gallery" id="gallery">
+      <p class="empty-state">Loading wallpapers…</p>
+    </div>
+  </div>
+
+  <!-- Auth modal -->
+  <div class="modal-backdrop hidden" id="authBackdrop">
+    <div class="modal">
+      <button class="close-btn" id="authClose">&times;</button>
+      <div class="modal-tabs">
+        <button class="modal-tab active" data-tab="login">Log in</button>
+        <button class="modal-tab" data-tab="signup">Sign up</button>
+      </div>
+
+      <form id="authForm">
+        <div class="field">
+          <label for="authEmail">Email</label>
+          <input type="email" id="authEmail" required autocomplete="email" />
+        </div>
+        <div class="field">
+          <label for="authPassword">Password</label>
+          <input type="password" id="authPassword" required minlength="6" autocomplete="current-password" />
+        </div>
+        <button class="btn btn-accent" type="submit" style="width:100%" id="authSubmit">Log in</button>
+        <p class="form-message" id="authMessage"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
