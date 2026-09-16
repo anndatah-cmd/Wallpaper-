@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Backdrop — Admin</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <header class="site-header">
+      <div class="wordmark">Back<span>drop</span></div>
+      <div class="header-actions" id="headerActions"></div>
+    </header>
+
+    <div id="unauthorized" class="center-message" style="display:none">
+      <h1>Admins only</h1>
+      <p>You need an admin account to see this page. <a href="index.html">Back to the gallery</a>.</p>
+    </div>
+
+    <div id="adminContent" style="display:none">
+      <div class="admin-title">
+        <h1>Upload wallpapers</h1>
+        <p>Add a new wallpaper below. It appears in the public gallery as soon as it uploads.</p>
+      </div>
+
+      <div class="admin-layout">
+        <div class="panel">
+          <h2>New wallpaper</h2>
+          <form id="uploadForm">
+            <div class="field">
+              <label for="title">Title</label>
+              <input type="text" id="title" required />
+            </div>
+            <div class="field">
+              <label for="category">Category</label>
+              <input type="text" id="category" placeholder="e.g. minimal, nature, abstract" />
+            </div>
+            <div class="field">
+              <label for="description">Description (optional)</label>
+              <textarea id="description" rows="3"></textarea>
+            </div>
+            <div class="field">
+              <label for="file">Image file</label>
+              <input type="file" id="file" accept="image/*" required />
+            </div>
+            <button class="btn btn-accent" type="submit" id="uploadBtn" style="width:100%">Upload</button>
+            <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+            <p class="form-message" id="uploadMessage"></p>
+          </form>
+        </div>
+
+        <div class="panel">
+          <h2>Published wallpapers</h2>
+          <div class="table-list" id="wallpaperList">
+            <p class="empty-state">Loading…</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
